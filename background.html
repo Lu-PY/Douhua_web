@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>後台管理</title>
+		
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/background.css">
+	<script src="assets/js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<script src="assets/js/header.js"></script>
+		<div class=" memberlogo clearfix">
+
+			<img src="assets/img/member.png" class="memberlogo" charset="UTF-8">
+            <h1>會員中心</h1>
+		</div>
+	
+		<div class="memberbutton clearfix">
+			<button onclick="document.getElementById('insert_product').style.display='block'"  class="button">新增商品</button>
+      <button onclick="document.getElementById('change_product').style.display='block'"  class="button">修改商品</button>
+      <button onclick="document.getElementById('delect_product').style.display='block'"  class="button">刪除商品</button>
+			<button onclick="document.getElementById('all_order_list').style.display='block'"  class="button">訂單列表</button>
+		</div>
+		<div id="insert_product" class="mem_modal">
+  		<form class="mem_modal-content animate" >
+    		<div class="imgcontainer">
+        <h2 >新增商品</h2>
+     		</div>
+        <div class="container">        
+        <table  class="list" >
+                            <thead >
+                                <tr>
+                                    <th scope="col" >商品名稱</th>
+                                    <th scope="col-2" >圖片</th>
+                                    <th scope="col-2" >種類</th>
+                                    <th scope="col" >價格</th>
+                                    <th scope="col-3" >介紹</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td >
+                                        <input  type="text" placeholder="輸入商品名稱" name="pname"  >
+                                    </td>
+                                    <td >
+                                        <input  type="text" placeholder="輸入商品圖片路徑" name="pimg"  >
+                                    </td>
+                                    <td >
+                                      <select name="type">
+                                      <option selected>請選擇</option>
+                                      <option value="">豆花</option>
+                                      <option value="">單品</option>
+                                      <option value="">冰品</option>
+                                      </select>
+                                    </td>
+                                    <td >
+                                        <input type="number" value="25" min="1" max="50">元
+                                    </td>
+                                    <td>
+                                      <input  type="textarea" placeholder="輸入商品介紹" name=" "   >
+                                    </td>
+                                </tr>
+                            </tbody>
+        </table>
+      		<button type="submit" class="button">Insert</button>
+      		<button type="button" onclick="document.getElementById('insert_product').style.display='none'"  class="button">Cancel</button>
+   		 	</div>
+      </form>
+    </div>
+    <div id="change_product" class="mem_modal">
+    <form class="mem_modal-content animate" >
+        <div class="imgcontainer">
+        <h2 >修改商品</h2>
+        </div>
+        <div class="container"> 
+        <table  class="list" >
+                            <thead >
+                                <tr>
+                                    <th scope="col" >商品名稱</th>
+                                    <th scope="col" >圖片</th>
+                                    <th scope="col" >種類</th>
+                                    <th scope="col" >價格</th>
+                                    <th scope="col" >介紹</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td >
+                                        <input  type="text" value=" 黑糖剉冰" placeholder="輸入商品名稱" name="pname"  >
+                                    </td>
+                                    <td >
+                                       <img src="assets/img/ice.jpg" class="product_pic"><br><input  type="text" placeholder="輸入商品圖片路徑" name="pimg" value="assets/img/ice.jpg" >
+                                    </td>
+                                    <td >
+                                      <select name="type">
+                                      <option >請選擇</option>
+                                      <option value="">豆花</option>
+                                      <option value="">單品</option>
+                                      <option value="" selected>冰品</option>
+                                      </select>
+                                    </td>
+                                    <td >
+                                        <input type="number" value="35" min="1" max="50">元
+                                    </td>
+                                    <td>
+                                      <input  type="textarea" placeholder="輸入商品介紹" name=" "  value="剉冰介紹我忘記之前打啥了" cols="20"
+                                      row="">
+                                    </td>
+                                </tr>
+                            </tbody>
+        </table>
+          <button type="submit" class="button">Change</button>
+          <button type="button" onclick="document.getElementById('change_product').style.display='none'"  class="button">Cancel</button>
+        </div>
+        </form>  		
+		</div>
+
+    <div id="delect_product" class="mem_modal">
+    <form class="mem_modal-content animate" >
+        <div class="imgcontainer">
+        <h2 >刪除商品</h2>
+        </div>
+        <div class="container"> 
+        <table  class="list" >
+                            <thead >
+                                <tr>
+                                <th scope="col" class="product-remove">移除</th>
+                                    <th scope="col" >商品名稱</th>
+                                    <th scope="col" >圖片</th>
+                                    <th scope="col" >種類</th>
+                                    <th scope="col" >價格</th>
+                                    <th scope="col" >介紹</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td class="product-remove" style="vertical-align: middle">
+                                        <input type="radio">
+                                    </td>
+                                    <td >
+                                        黑糖剉冰
+                                    </td>
+                                    <td >
+                                       <img src="assets/img/ice.jpg" class="product_pic">
+                                    </td>
+                                    <td >
+                                       冰品
+                                    </td>
+                                    <td >
+                                        35元
+                                    </td>
+                                    <td>
+                                      剉冰介紹我忘記之前打啥了
+                                    </td>
+                                    
+                                </tr>
+                            </tbody>
+        </table>
+          <button type="submit" class="button">Delect</button>
+          <button type="button" onclick="document.getElementById('delect_product').style.display='none'"  class="button">Cancel</button>
+        </div>
+        </form>     
+    </div>
+		<div id="all_order_list" class="mem_modal">
+  
+  		<div class="mem_modal-content animate" action="">
+    		<div class="imgcontainer">
+     		 <h2>訂單紀錄</h2>
+    		</div>
+    		<div class="container" style="text-align:center">
+    			<table  class="list" >
+                            <thead >
+                                <tr>
+                                    <th scope="col" >訂單編號</th>
+                                    <th scope="col" >商品</th>
+                                    <th scope="col" >收件者</th>
+                                    <th scope="col" >價格</th>
+                                    <th scope="col" >付款方式</th>
+                                    <th scope="col" >電話</th>
+                                    <th scope="col" >取貨方式</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td >
+                                        00001001
+                                    </td>
+                                    <td >
+                                        <a href="allproduct.html">
+                                            豆花、湯品
+                                        </a>
+                                    </td>
+                                    <td >
+                                        花豆妹
+                                    </td>
+                                    <td >
+                                    	NT$&nbsp;100
+                                    </td>
+                                    <td >
+                                        card
+                                    </td>
+                                    <td>
+                                    	0988787878
+                                    </td>
+                                    <td>
+                                    	來店取貨
+                                    </td>
+                                </tr>
+                            </tbody>
+               	</table>
+                <button type="button" onclick="document.getElementById('all_order_list').style.display='none'"  class="button">Close</button>
+   		 	</div>
+  		</div>
+		</div>
+		
+<script src="assets/js/background.js"></script>
+	<script src="assets/js/footer.js"></script>
+</body>
+</html>
